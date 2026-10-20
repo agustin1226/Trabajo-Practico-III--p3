@@ -1,0 +1,312 @@
+!SESSION 2026-10-20 18:41:07.208 -----------------------------------------------
+eclipse.buildId=4.37.0.20250905-1455
+java.version=21.0.8
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.eclemma.core 4 0 2026-10-20 18:43:11.071
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.core [152]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+       org.jacoco.core [488]
+  Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.13.202504020838"
+       org.jacoco.report [489]
+         Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.internal.data"
+         Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"
+         Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.objectweb.asm"
+         Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.13,0.8.14)"
+           -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.8.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY org.eclipse.eclemma.ui 4 0 2026-10-20 18:43:11.071
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.eclemma.ui [154]
+  Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+    -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+       org.jacoco.core [488]
+  Unresolved requirement: Require-Bundle: org.eclipse.eclemma.core
+    -> Bundle-SymbolicName: org.eclipse.eclemma.core; bundle-version="3.1.10.202505212130"; singleton:="true"
+       org.eclipse.eclemma.core [152]
+         Unresolved requirement: Require-Bundle: org.jacoco.core; bundle-version="[0.8.13,0.8.14)"
+           -> Bundle-SymbolicName: org.jacoco.core; bundle-version="0.8.13.202504020838"
+         Unresolved requirement: Require-Bundle: org.jacoco.report; bundle-version="[0.8.13,0.8.14)"
+           -> Bundle-SymbolicName: org.jacoco.report; bundle-version="0.8.13.202504020838"
+              org.jacoco.report [489]
+                Unresolved requirement: Import-Package: org.jacoco.core.data; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.data; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.internal.data"
+                Unresolved requirement: Import-Package: org.jacoco.core; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"
+                Unresolved requirement: Import-Package: org.jacoco.core.runtime; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.runtime; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.objectweb.asm"
+                Unresolved requirement: Import-Package: org.jacoco.core.analysis; version="[0.8.13,0.8.14)"
+                  -> Export-Package: org.jacoco.core.analysis; bundle-symbolic-name="org.jacoco.core"; bundle-version="0.8.13.202504020838"; version="0.8.13"; uses:="org.jacoco.core.data,org.jacoco.core.internal.analysis"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"] because it is exposed to package 'org.objectweb.asm' from resources org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"] and org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"] via two dependency chains.
+
+Chain 1:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm"]
+
+Chain 2:
+  org.jacoco.core [osgi.identity; type="osgi.bundle"; version:Version="0.8.13.202504020838"; osgi.identity="org.jacoco.core"]
+    import: (&(osgi.wiring.package=org.objectweb.asm.commons)(&(version>=9.8.0)(!(version>=9.9.0))))
+     |
+    export: osgi.wiring.package=org.objectweb.asm.commons; uses:=org.objectweb.asm
+  org.objectweb.asm.commons [osgi.identity; type="osgi.bundle"; version:Version="9.8.0"; osgi.identity="org.objectweb.asm.commons"]
+    import: (&(osgi.wiring.package=org.objectweb.asm)(version>=9.8.0))
+     |
+    export: osgi.wiring.package: org.objectweb.asm
+  org.objectweb.asm [osgi.identity; type="osgi.bundle"; version:Version="9.9.1"; osgi.identity="org.objectweb.asm"]
+	at org.eclipse.osgi.container.Module.start(Module.java:495)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$2.run(ModuleContainer.java:2110)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$1$1.execute(EquinoxContainerAdaptor.java:146)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2101)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:2041)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:2003)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1915)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:341)
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-20 18:43:11.183
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2026-10-20 18:52:23.451
+!MESSAGE Logback config file: C:\Users\hp\OneDrive\Desktop\Tp3 progra3\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.7.100.20250418-1315.xml
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 18:52:29.243
+!MESSAGE [Info] Starting language server with binary lsp agent.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 18:52:29.246
+!MESSAGE [Info] Found native binary in fragment bundle: com.microsoft.copilot.eclipse.core.agent.win32
+
+!ENTRY org.eclipse.egit.ui 2 0 2026-10-20 18:52:29.332
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\hp'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 18:52:29.513
+!MESSAGE [Info] Binary agent started successfully.
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.164
+!MESSAGE [Info]	[ripgrep] Resolved ripgrep path: C:\Users\hp\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.165
+!MESSAGE [Info]	[lsp] GitHub Copilot Language Server 1.527.0 initialized
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.165
+!MESSAGE [Info]	[ripgrep] Set GITHUB_COPILOT_RIPGREP_PATH_OVERRIDE=C:\Users\hp\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0\rg.exe
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.166
+!MESSAGE [Info]	[ripgrep] Using tmpFolder for ripgrep: C:\Users\hp\.cache\pkg\72dc6f288b8f13e22da7572a55f576ac335b8402e617b8aaf91f8dbf72adf1a0
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.303
+!MESSAGE [Info]	[certificates] Removed 6 expired certificates
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.304
+!MESSAGE [Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 184 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.304
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.304
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.305
+!MESSAGE [Info]	[default] Policy watcher started for GitHub Copilot Plugin
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.305
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.305
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.306
+!MESSAGE [Info]	[GithubAvailableEmbeddingTypes] Could not find any available embedding types. Error: noSession
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.306
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.306
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.311
+!MESSAGE [Info]	[UndiciFetcher] HTTP settings changed; resetting Undici dispatchers. {
+  proxy: 'none',
+  noProxyCount: 0,
+  proxyStrictSSL: true,
+  hasProxyAuthorization: false,
+  hasProxyKerberosServicePrincipal: false
+}
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.313
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.314
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.314
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.314
+!MESSAGE [Info]	[AuthManager] checkAndUpdateStatus: no session found, priming token
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:31.315
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 18:52:47.670
+!MESSAGE [Info]	[UndiciFetcher] Root certificate set changed; resetting Undici dispatchers. { certificateCount: 184 }
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 19:20:42.942
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 19:20:42.943
+!MESSAGE [Info]	[AuthManager] resolvePersistedSession: no active session editorId=eclipse pickerEnabled=false optedOut=false autoAdoptAttempted=true
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 19:20:42.943
+!MESSAGE [Info]	[AuthManager] checkAndUpdateStatus: no session found, priming token
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 19:20:42.943
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY org.eclipse.lsp4e 1 0 2026-10-20 19:20:42.944
+!MESSAGE [Info]	[AuthManager] resolveSession: persisted store returned no session
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.851
+!MESSAGE [Info] Document is null for editor: Constantes.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.852
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/configuracion/Constantes.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.865
+!MESSAGE [Info] Document is null for editor: Main.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.865
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/main/Main.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.875
+!MESSAGE [Info] Document is null for editor: Grafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.875
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/Grafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.885
+!MESSAGE [Info] Document is null for editor: AlgoritmoGoloso.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.885
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/AlgoritmoGoloso.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.895
+!MESSAGE [Info] Document is null for editor: AlgoritmoBacktracking.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.895
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/AlgoritmoBacktracking.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.904
+!MESSAGE [Info] Document is null for editor: GeneradorGrafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.904
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/GeneradorGrafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.913
+!MESSAGE [Info] Document is null for editor: SistemaDominante.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.913
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/SistemaDominante.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.922
+!MESSAGE [Info] Document is null for editor: Observer.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.923
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/Observer.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.931
+!MESSAGE [Info] Document is null for editor: GestorArchivos.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.932
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/GestorArchivos.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.940
+!MESSAGE [Info] Document is null for editor: VentanaPrincipal.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.940
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/vista/VentanaPrincipal.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.948
+!MESSAGE [Info] Document is null for editor: PanelGrafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.948
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/vista/PanelGrafo.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.957
+!MESSAGE [Info] Document is null for editor: PanelResultados.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.957
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/vista/PanelResultados.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.965
+!MESSAGE [Info] Document is null for editor: PanelControles.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.965
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/vista/PanelControles.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.973
+!MESSAGE [Info] Document is null for editor: ControladorPrincipal.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.973
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/controladores/ControladorPrincipal.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.981
+!MESSAGE [Info] Document is null for editor: ControladorStress.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.981
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/controladores/ControladorStress.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.996
+!MESSAGE [Info] Document is null for editor: TestDeStress.java
+
+!ENTRY com.microsoft.copilot.eclipse 1 0 2026-10-20 20:08:39.996
+!MESSAGE [Info] Completion handler is refreshed for the document: file:///C:/Users/hp/OneDrive/Desktop/Tp3%20progra3/Tp3_progra3/src/modelo/TestDeStress.java
